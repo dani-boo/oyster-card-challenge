@@ -1,5 +1,7 @@
 # Oyster Card Challenge
 
+**Makers Academy Week 2 Pairing Challenge**
+
 ## 1. Set up project
 
 ## 2. Set up RSpec
