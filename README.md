@@ -26,4 +26,32 @@ We asked RSpec to look for a class (`Oystercard`) that doesn't exist yet.
 **How to solve?**
 Define class `Oystercard` in its own file.
 
+## 4. Add the balance
+
+**How will we interact with our code and manually test in irb (or pry)?**
+
+Open irb in terminal and name a new instance of our `Oystercard` class:
+`oystercard = Oystercard.new`
+
+--------------------
+
+**User Story:**  
+
+```
+In order to use public transport
+As a customer
+I want money on my card
+```
+
+**Feature:**  
+
+Card has balance
+
+## 5. Top up functionality
+
+
+
+
+
+
 
