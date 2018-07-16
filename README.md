@@ -1,10 +1,10 @@
 # Oyster Card Challenge
 
-##1. Set up project
+## 1. Set up project
 
-##2. Set up RSpec
+## 2. Set up RSpec
 
-##3. Debug
+## 3. Debug
 
 **Type of error:**
 ```
