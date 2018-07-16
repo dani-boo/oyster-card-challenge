@@ -88,6 +88,14 @@ I want a maximum limit (of £90) on my card
 
 Set max_limit to £90
 
+-----------------
+
+**How will we interact with our code and manually test in irb (or pry)?**
+
+- Repeat previous steps
+- Test .max_limit method
+
+---------------
 
 
 
