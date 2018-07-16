@@ -51,6 +51,33 @@ Card has balance
 
 ## 5. Top up functionality
 
+**User Story:**
+
+```
+In order to keep using public transport
+As a customer
+I want to add money to my card
+```
+
+**Feature:**  
+
+Top-up card
+
+-------------
+
+**How will we interact with our code and manually test in irb (or pry)?**
+
+- Open irb in terminal
+- `require './lib/oystercard'`
+- `card = Oystercard.new`
+- `card.top_up(20)`
+
+-------------
+
+## 6. 
+
+
+
 
 
 
