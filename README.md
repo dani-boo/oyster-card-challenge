@@ -97,6 +97,22 @@ Set max_limit to £90
 
 ---------------
 
+## 7. Deduct the money
+
+```
+In order to pay for my journey
+As a customer
+I need my fare deducted from my card
+```
+
+**Feature:** 
+
+card.deduct(amount)
+
+--------------
+
+## 8. 
+
 
 
 
