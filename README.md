@@ -111,8 +111,19 @@ card.deduct(amount)
 
 --------------
 
-## 8. 
+## 8. Adding touch in/out 
 
+```
+In order to get through the barriers.
+As a customer
+I need to touch in and out.
+```
+
+**Features:** 
+
+card.touch_in
+card.touch_out
+card.in_journey?
 
 
 
