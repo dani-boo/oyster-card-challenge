@@ -44,7 +44,7 @@ describe Oystercard do
     end
   end
 
-  describe 'in_journey?' do
+  describe '#in_journey?' do
     # responds to in_journey?
     it { is_expected.to respond_to(:in_journey?) }
     # initially not in journey
@@ -53,7 +53,7 @@ describe Oystercard do
     end
   end
 
-  describe 'touch_in' do
+  describe '#touch_in' do
     before(:each) { subject.balance = 10 }
     # responds to tapping in
     it { is_expected.to respond_to(:touch_in) }
@@ -68,11 +68,12 @@ describe Oystercard do
     before(:each) { subject.balance < 1 }
     it 'won\'t touch in if below minimum balance' do
       # subject.balance = Oystercard::MINIMUM_BALANCE
-      expect { subject.touch_in }.to raise_error "You need at least #{Oystercard::MINIMUM_BALANCE} pound to tap in. Please top up."
+      expect { subject.touch_in }.to raise_error "You need at least #{Oystercard::MINIMUM_CHARGE} pound to tap in. Please top up."
     end
   end
 
-  describe 'touch_out' do
+  describe '#touch_out' do
+    before(:each) { subject.balance = 10 }
     # responds to tapping out
     it { is_expected.to respond_to(:touch_out) }
     # touches out means not in_journey
@@ -80,5 +81,8 @@ describe Oystercard do
       subject.touch_out
       expect(subject.in_journey?).to eq false
     end 
+    it 'deducts money when tapping out' do
+      expect { subject.touch_out }.to change { subject.balance }.by(-Oystercard::MINIMUM_CHARGE)
+    end
   end
 end

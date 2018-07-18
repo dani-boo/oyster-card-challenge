@@ -1,6 +1,6 @@
 # Oyster Card Challenge
 
-**Makers Academy Week 2 Pairing Project**
+**Makers Academy Week 2 Pairing Project using TDD**
 
 ![alt text](http://res.cloudinary.com/dani-devs-and-designs/image/upload/v1531923743/Oystercard_m1cage.jpg)
 
@@ -148,14 +148,33 @@ I need to have the minimum amount (£1) for a single journey.
 
 card.minimum_balance
 
+---------------------
+
+## 10. Deduct money when touching out
+
+**User Story:**
+
+```
+In order to pay for my journey
+As a customer
+When my journey is complete, I need the correct amount deducted from my card
+```
+
+**Feature:**
+
+card.touch_out.deduct(amount)
 
 
 
 
 
+-------------------
 
+### Contributions:
 
-
+@stephfash
+@kirtimansingh93
+@pliantmeerkat
 
 
 

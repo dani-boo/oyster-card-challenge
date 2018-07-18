@@ -2,7 +2,7 @@ class Oystercard
   attr_accessor :balance, :in_journey
   MAX_LIMIT = 90
   STARTING_BALANCE = 0
-  MINIMUM_BALANCE = 1
+  MINIMUM_CHARGE = 1
 
   def initialize
     @balance = STARTING_BALANCE
@@ -19,7 +19,7 @@ class Oystercard
   end
 
   def touch_in
-    raise "You need at least #{Oystercard::MINIMUM_BALANCE} pound to tap in. Please top up." if balance < MINIMUM_BALANCE
+    raise "You need at least #{Oystercard::MINIMUM_CHARGE} pound to tap in. Please top up." if balance < MINIMUM_CHARGE
     @in_journey = true
   end
 
@@ -28,7 +28,7 @@ class Oystercard
   end
 
   def touch_out
+    deduct(MINIMUM_CHARGE)
     @in_journey = false
-    true
   end 
 end
