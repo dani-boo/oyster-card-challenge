@@ -162,8 +162,24 @@ When my journey is complete, I need the correct amount deducted from my card
 
 **Feature:**
 
-card.touch_out.deduct(amount)
+card.touch_out deduct(amount)
 
+-------------------
+
+## 11. Save the entry station
+
+**User Story:**
+
+```
+In order to pay for my journey
+As a customer
+I need to know where I've travelled from
+```
+
+**Features:**
+
+stations = []
+card.entry_station?
 
 
 
@@ -172,9 +188,9 @@ card.touch_out.deduct(amount)
 
 ### Contributions:
 
-@stephfash
-@kirtimansingh93
-@pliantmeerkat
+@stephfash  
+@kirtimansingh93  
+@pliantmeerkat  
 
 
 
