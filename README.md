@@ -2,6 +2,8 @@
 
 **Makers Academy Week 2 Pairing Challenge**
 
+![alt text](http://res.cloudinary.com/dani-devs-and-designs/image/upload/v1531923743/Oystercard_m1cage.jpg)
+
 ## 1. Set up project
 
 ## 2. Set up RSpec
@@ -99,6 +101,8 @@ Set max_limit to £90
 
 ## 7. Deduct the money
 
+**User Story:**
+
 ```
 In order to pay for my journey
 As a customer
@@ -121,9 +125,26 @@ I need to touch in and out.
 
 **Features:** 
 
-card.touch_in
-card.touch_out
+card.touch_in  
+card.touch_out  
 card.in_journey?
+
+-----------------
+ ## 9. Check minimum balance
+
+ **User Story:**
+
+ ```
+ In order to pay for my journey
+As a customer
+I need to have the minimum amount (£1) for a single journey.
+```
+
+**Feature:**
+
+card.minimum_balance
+
+
 
 
 
