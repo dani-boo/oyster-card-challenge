@@ -1,12 +1,16 @@
 # Oyster Card Challenge
 
-**Makers Academy Week 2 Pairing Challenge**
+**Makers Academy Week 2 Pairing Project**
 
 ![alt text](http://res.cloudinary.com/dani-devs-and-designs/image/upload/v1531923743/Oystercard_m1cage.jpg)
 
 ## 1. Set up project
 
+Install gemfiles.
+
 ## 2. Set up RSpec
+
+rspec -- init
 
 ## 3. Debug
 
