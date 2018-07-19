@@ -1,7 +1,8 @@
 require 'oystercard'
 
 describe Oystercard do
-  let(:station){ double :station }
+  let(:entry_station){ double :test_entry_station }
+  let(:exit_station){ double :test_exit_station }  
 
   context 'money on card' do
     describe '#balance' do
@@ -56,7 +57,7 @@ describe Oystercard do
       it { is_expected.to respond_to(:touch_in).with(1).argument } # responds to tapping in
       
       it 'touches in to be in_journey' do # touches in means in_journey
-        subject.touch_in(station)
+        subject.touch_in(:test_entry_station)
         expect(subject.in_journey?).to eq true
       end
     end
@@ -64,8 +65,8 @@ describe Oystercard do
     describe '#entry_station' do
 
       it 'saves the entry station' do
-        subject.touch_in(station)
-        expect(subject.entry_station).to eq station
+        subject.touch_in(:test_entry_station)
+        expect(subject.entry_station).to eq :test_entry_station
       end
     end
 
@@ -80,14 +81,23 @@ describe Oystercard do
 
     describe '#touch_out' do
       
-      it { is_expected.to respond_to(:touch_out) } # responds to tapping out
+      it { is_expected.to respond_to(:touch_out).with(1).argument } # responds to tapping out
 
       it 'touches out to not be in_journey' do # touches out means not in_journey
-        subject.touch_out
+        subject.touch_out(:exit_station)
         expect(subject.in_journey?).to eq false
       end 
       it 'deducts money when tapping out' do
-        expect { subject.touch_out }.to change { subject.balance }.by(-Oystercard::MINIMUM_CHARGE)
+        expect { subject.touch_out(:test_exit_station) }.to change { subject.balance }.by(-Oystercard::MINIMUM_CHARGE)
+      end
+    end
+
+    describe '#exit_station' do
+
+      it 'saves the exit station' do
+        subject.touch_in(:entry_station)
+        subject.touch_out(:exit_station)
+        expect(subject.exit_station).to eq :exit_station
       end
     end
   end # end of context 'travel'
@@ -96,7 +106,7 @@ describe Oystercard do
     before(:each) { subject.balance < 1 }
 
     it 'won\'t touch in if below minimum balance' do
-      expect { subject.touch_in(station) }.to raise_error "You need at least #{Oystercard::MINIMUM_CHARGE} pound to tap in. Please top up."
+      expect { subject.touch_in(:station) }.to raise_error "You need at least #{Oystercard::MINIMUM_CHARGE} pound to tap in. Please top up."
     end
   end 
 end
