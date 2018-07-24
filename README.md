@@ -6,7 +6,7 @@
 
 ## 1. Set up project
 
-Install gemfiles.
+Install gemfiles
 
 ## 2. Set up RSpec
 

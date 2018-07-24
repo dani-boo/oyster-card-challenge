@@ -1,8 +1,9 @@
 require 'oystercard'
 
 describe Oystercard do
-  let(:entry_station){ double :test_entry_station }
-  let(:exit_station){ double :test_exit_station }  
+  let(:entry_station){ double :entry_station }
+  let(:exit_station){ double :exit_station }  
+  let(:journey){ {entry_station: entry_station, exit_station: exit_station} }
 
   context 'money on card' do
     describe '#balance' do
@@ -57,7 +58,7 @@ describe Oystercard do
       it { is_expected.to respond_to(:touch_in).with(1).argument } # responds to tapping in
       
       it 'touches in to be in_journey' do # touches in means in_journey
-        subject.touch_in(:test_entry_station)
+        subject.touch_in(:entry_station)
         expect(subject.in_journey?).to eq true
       end
     end
@@ -65,8 +66,8 @@ describe Oystercard do
     describe '#entry_station' do
 
       it 'saves the entry station' do
-        subject.touch_in(:test_entry_station)
-        expect(subject.entry_station).to eq :test_entry_station
+        subject.touch_in(:entry_station)
+        expect(subject.entry_station).to eq :entry_station
       end
     end
 
@@ -88,7 +89,7 @@ describe Oystercard do
         expect(subject.in_journey?).to eq false
       end 
       it 'deducts money when tapping out' do
-        expect { subject.touch_out(:test_exit_station) }.to change { subject.balance }.by(-Oystercard::MINIMUM_CHARGE)
+        expect { subject.touch_out(:exit_station) }.to change { subject.balance }.by(-Oystercard::MINIMUM_CHARGE)
       end
     end
 
@@ -100,6 +101,15 @@ describe Oystercard do
         expect(subject.exit_station).to eq :exit_station
       end
     end
+
+    describe '#journeys' do
+    
+      it 'stores a journey' do # journeys are saved to a hash
+        subject.touch_in(entry_station)
+        subject.touch_out(exit_station)
+        expect(subject.journeys).to include journey
+      end   
+    end 
   end # end of context 'travel'
 
   describe '#minimum_balance' do
